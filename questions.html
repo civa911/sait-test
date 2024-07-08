@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы - Тест</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="questionContainer" id="questionContainer">
+            <h2 id="questionTitle">Вопрос 1</h2>
+            <img class="img" id="questionImage" src="/img/question1.jpg" alt="Вопрос 1">
+            <form class="questionForm" id="questionForm">
+                <div>
+                    <input class="list" type="radio" id="answer1" name="answer" value="1" required>
+                    <label for="answer1" id="answer1Label">Ответ 1</label>
+                </div>
+                <div>
+                    <input class="list" type="radio" id="answer2" name="answer" value="2">
+                    <label for="answer2" id="answer2Label">Ответ 2</label>
+                </div>
+                <div>
+                    <input class="list" type="radio" id="answer3" name="answer" value="3">
+                    <label for="answer3" id="answer3Label">Ответ 3</label>
+                </div>
+                <div>
+                    <input class="list" type="radio" id="answer4" name="answer" value="4">
+                    <label for="answer4" id="answer4Label">Ответ 4</label>
+                </div>
+                <button class="button" type="submit" id="nextButton">Далее</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Вопрос 1",
+                image: "/img/question1.jpg",
+                answers: ["Ответ 1", "Ответ 2", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 2",
+                image: "/img/question2.jpg",
+                answers: ["Ответ 1", "Ответ 2", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 3",
+                image: "/img/question3.jpg",
+                answers: ["Ответ 1", "Ответ 3", "Ответ 33"]
+            },
+            {
+                question: "Вопрос 4",
+                image: "/img/question4.jpg",
+                answers: ["Ответ 11", "Ответ 42", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 5",
+                image: "/img/question5.jpg",
+                answers: ["Ответ 91", "Ответ 22", "Ответ 43"]
+            },
+            {
+                question: "Вопрос 6",
+                image: "/img/question6.jpg",
+                answers: ["Ответ 2341", "Ответ 23", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 7",
+                image: "/img/question7.jpg",
+                answers: ["Ответ 4231", "Ответ 233", "Ответ 33"]
+            },
+            {
+                question: "Вопрос 8",
+                image: "/img/question8.jpg",
+                answers: ["Ответ 1", "Ответ 372", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 9",
+                image: "/img/question9.jpg",
+                answers: ["Ответ 751", "Ответ 22", "Ответ 3"]
+            },
+            {
+                question: "Вопрос 10",
+                image: "/img/question10.jpg",
+                answers: ["Ответ 21", "Ответ 2", "Ответ 773"]
+            },
+            // Добавьте остальные вопросы здесь
+        ];
+
+        let currentQuestionIndex = 0;
+        const answers = [];
+
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
+            answers.push(selectedAnswer);
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                localStorage.setItem('answers', JSON.stringify(answers));
+                window.location.href = 'result.html';
+            }
+        });
+
+        function loadQuestion(index) {
+            const question = questions[index];
+            document.getElementById('questionTitle').textContent = question.question;
+            document.getElementById('questionImage').src = question.image;
+            document.getElementById('answer1Label').textContent = question.answers[0];
+            document.getElementById('answer2Label').textContent = question.answers[1];
+            document.getElementById('answer3Label').textContent = question.answers[2];
+        }
+
+        loadQuestion(currentQuestionIndex);
+    </script>
+    <script src="server.js"></script>
+</body>
+</html>
