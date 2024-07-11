@@ -20,16 +20,10 @@
         const jpgImages = {
             photo1: 'img-result/photo1.jpg',
             photo2: 'img-result/photo2.jpg',
-            photo3: 'img-result/photo3.mp4',
-            photo4: 'img-result/photo4.mp4'
+            photo3: 'img-result/photo3.jpg',
+            photo4: 'img-result/photo4.jpg'
         };
 
-        const mp4Videos = {
-            video1: 'img-result/to/video1.mp4',
-            video2: 'img-result/to/video2.mp4',
-            video3: 'img-result/to/photo3.mp4',
-            video4: 'img-result/to/photo4.mp4'
-        };
 
         function calculateResult(answers) {
             // Простой пример логики подсчета результата
@@ -47,7 +41,7 @@
         if (result) {
             
             const mediaElement = document.getElementById('resultMedia');
-            if (result === "photo4") {  // Условие для показа видео
+            if (result === "photo5") {  // Условие для показа видео
                 mediaElement.innerHTML = `<video controls width="300">
                     <source src="${mp4Videos['video4']}" type="video/mp4">
                     Ваш браузер не поддерживает видео.

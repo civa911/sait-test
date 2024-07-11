@@ -1,7 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .containers-intro {
@@ -45,7 +49,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
   margin-top: 15pc;
   border-radius: 8px;
   padding: 20px;
@@ -140,6 +144,7 @@ img {
   display: flex;
   width: 60%;
   height: auto;
+  border-radius: 15px;
   /* margin-bottom: 20px; */
 }
 
@@ -264,7 +269,7 @@ section {
 }
 
 .footer-img {
-  width: 1400px;
+  width: 90%;
   margin-bottom: 0;
 }
 
