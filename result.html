@@ -4,44 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Результат - Тест</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Ваш результат</h1>
+<body class="containers-intro">
+    <div class="containers-result">
         <p id="resultText"></p>
+        <div class="resultImage" id="resultMedia"></div>
     </div>
 
     <script>
-        const name = localStorage.getItem('name');
-        const email = localStorage.getItem('email');
+          const name = localStorage.getItem('name');
         const answers = JSON.parse(localStorage.getItem('answers'));
+
+        const jpgImages = {
+            photo1: 'img-result/photo1.jpg',
+            photo2: 'img-result/photo2.jpg',
+            photo3: 'img-result/photo3.mp4',
+            photo4: 'img-result/photo4.mp4'
+        };
+
+        const mp4Videos = {
+            video1: 'img-result/to/video1.mp4',
+            video2: 'img-result/to/video2.mp4',
+            video3: 'img-result/to/photo3.mp4',
+            video4: 'img-result/to/photo4.mp4'
+        };
 
         function calculateResult(answers) {
             // Простой пример логики подсчета результата
             const score = answers.reduce((total, answer) => total + parseInt(answer), 0);
-            if (score <= 10) return "/img-result/result1.jpg";
-            if (score <= 20) return "/img-result/result2.jpg";
-            if (score <= 30) return "/img-result/result3.jpg";
-            if (score <= 40) return "/img-result/result4.jpg";
-            return "Вам нужно стараться больше!";
+            if (score <= 10) return "photo1";
+            if (score <= 20) return "photo2";
+            if (score <= 30) return "photo3";
+            if (score <= 40) return "photo4";
+            return null;
         }
 
         const result = calculateResult(answers);
-        document.getElementById('resultText').textContent = `${name}, ваш результат: ${result}`;
+        document.getElementById('resultText').textContent = `${name}, ваш результат: `;
 
-        // Отправка результата на почту
-        fetch('http://localhost:3000/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name, email, result })
-        })
-        .then(response => response.text())
-        .then(data => console.log('Response from server:', data))
-        .catch(error => console.error('Error:', error));
+        if (result) {
+            
+            const mediaElement = document.getElementById('resultMedia');
+            if (result === "photo4") {  // Условие для показа видео
+                mediaElement.innerHTML = `<video controls width="300">
+                    <source src="${mp4Videos['video4']}" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>`;
+            } else {
+                mediaElement.innerHTML = `<img src="${jpgImages[result]}" alt="результат">`;
+            }
+
+        } else {
+            document.getElementById('resultText').textContent += "Вам нужно стараться больше!";
+        }
     </script>
-    <script src="server.js"></script>
+    
 </body>
 </html>

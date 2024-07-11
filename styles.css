@@ -1,32 +1,115 @@
 body {
   display: flex;
   justify-content: center;
+  margin: 0;
+}
+
+.containers-intro {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background-image: url(svg/фон.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 115px;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-image: url("./svg/фон.jpg");
+  background-repeat: round;
 }
 
 .container {
-  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  margin-top: 1pc;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  background-color: white;
   font-size: 24px;
+  text-align: center;
+}
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 15pc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  text-align: center;
+  background-image: url(svg/1678764818_bogatyr-club-p-effekt-siyaniya-foni-oboi-38\ 1.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.containers-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 15pc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.forma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1,
 h2 {
   margin: 0 0 20px;
+  color: aliceblue;
+  font-family: "Geometria-Medium";
+}
+
+p {
+  font-size: 28px;
+  font-family: "Colus Regular";
+  color: aliceblue;
+}
+
+label {
+  color: aliceblue;
+  font-family: "Colus Regular";
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.input {
+  font-family: "Colus Regular";
+  font-size: 18px;
 }
 
 input[type="text"],
@@ -43,32 +126,40 @@ button {
   border-radius: 4px;
   padding: 10px 20px;
   color: white;
-  background-color: #4caf50;
+  font-family: "Colus Regular";
+  font-size: x-large;
+  background-color: #0b0b64;
   cursor: pointer;
-  width: 150px;
-    font-size: x-large;
 }
 
-
 button:hover {
-  background-color: #45a049;
+  background-color: #000080;
 }
 
 img {
-  max-width: 100%;
-  margin-bottom: 20px;
+  display: flex;
+  width: 60%;
+  height: auto;
+  /* margin-bottom: 20px; */
 }
 
-.img {
-  display: flex;
-  width: 100%;
-  height: 100%;
+/* .image {
+  width: 70%;
+  height: 70%;
+  border: 10px solid #000;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
+.img-result {
+  border: 0px;
 }
 
 .questionContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: auto;
 }
 
 .list {
@@ -78,9 +169,115 @@ img {
 
 .questionForm {
   display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  align-content: center;
+  gap: 20px;
+}
+
+#answer2Label {}
+
+.question-list {}
+
+.typing-containers {
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  font-family: "Colus Regular";
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.cursor {
+  margin-left: 5px;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 100%;
+  min-height: 100%;
+  margin-bottom: 3rem; */
+
+  & img {
+    align-self: center;
+    margin: 0 1rem;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 1rem 1rem;
+    box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+    outline: none;
+    color: #41403e;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: all 0.5s ease;
+
+    &:hover {
+      box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+    }
+
+    &.lined.thick {
+      border: solid 7px #41403e;
+    }
+
+    &.dotted.thick {
+      border: dotted 5px #41403e;
+    }
+
+    &.dashed.thick {
+      border: dashed 5px #41403e;
+    }
+
+    &.lined.thin {
+      border: solid 2px #41403e;
+    }
+
+    &.dotted.thin {
+      border: dotted 2px #41403e;
+    }
+
+    &.dashed.thin {
+      border: dashed 2px #41403e;
+    }
+  }
+}
+
+.resultImage {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-img {
+  width: 1400px;
+  margin-bottom: 0;
+}
+
+.logo-img-reu {
+  width: 20%;
+}
+
+.logo-img-sovet {
+  width: 10%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
 }

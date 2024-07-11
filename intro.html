@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Тест - Какой я студент</title>
+</head>
+<body class="containers-intro">
+    <div class="containers">
+        <div class="forma">
+            <h1>Тест - Какой я студент?</h1>
+            <form id="userForm">
+                <label for="name">Фамилия и имя:</label>
+                <input class="input" placeholder="Ваша Фамилия и имя" type="text" id="name" name="name" required>
+                
+                <!-- <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required> -->
+                
+                <button type="submit">Начать тест</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            localStorage.setItem('name', document.getElementById('name').value);
+            // убрать почту
+            // localStorage.setItem('email', document.getElementById('email').value);
+            window.location.href = 'questions.html';
+        });
+    </script>
+    
+</body>
+</html>

@@ -4,86 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вопросы - Тест</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="containers-intro">
     <div class="container">
         <div class="questionContainer" id="questionContainer">
-            <h2 id="questionTitle">Вопрос 1</h2>
-            <img class="img" id="questionImage" src="/img/question1.jpg" alt="Вопрос 1">
+            <h2 id="questionTitle">1 вопрос</h2>
+            <section class="image">
+                <img class="img" id="questionImage" src="/img/question1.jpg" alt="Вопрос 1">
+            </section>
             <form class="questionForm" id="questionForm">
-                <div>
+                <div class="question-list">
                     <input class="list" type="radio" id="answer1" name="answer" value="1" required>
                     <label for="answer1" id="answer1Label">Ответ 1</label>
                 </div>
-                <div>
+                <div class="question-list">
                     <input class="list" type="radio" id="answer2" name="answer" value="2">
                     <label for="answer2" id="answer2Label">Ответ 2</label>
                 </div>
-                <div>
+                <div class="question-list">
                     <input class="list" type="radio" id="answer3" name="answer" value="3">
                     <label for="answer3" id="answer3Label">Ответ 3</label>
                 </div>
-                <div>
+                <div class="question-list">
                     <input class="list" type="radio" id="answer4" name="answer" value="4">
                     <label for="answer4" id="answer4Label">Ответ 4</label>
                 </div>
                 <button class="button" type="submit" id="nextButton">Далее</button>
             </form>
+            
         </div>
     </div>
 
     <script>
         const questions = [
             {
-                question: "Вопрос 1",
+                question: "1. Как часто ты ходил на занятия?",
                 image: "/img/question1.jpg",
-                answers: ["Ответ 1", "Ответ 2", "Ответ 3"]
+                answers: 
+                ["Посещал все занятия", 
+                "Иногда пропускал некоторые занятия", 
+                "Частенько приходилось пропускать занятия",
+                "Я появляюсь только во время сессии"]
             },
             {
-                question: "Вопрос 2",
+                question: "2. Что тебе дается сложнее всего?",
                 image: "/img/question2.jpg",
-                answers: ["Ответ 1", "Ответ 2", "Ответ 3"]
+                answers: ["Прийти вовремя на первую пару", 
+                "Найти время для развлечений", 
+                "Ходить на неинтересные лекции", 
+                "Найти время для учебы"]
             },
             {
-                question: "Вопрос 3",
+                question: "3. Какие у тебя отношения с одногруппниками?",
                 image: "/img/question3.jpg",
-                answers: ["Ответ 1", "Ответ 3", "Ответ 33"]
+                answers: ["Я общаюсь только с определенными лицами", 
+                "У меня со всеми хорошие отношения", 
+                "Общаюсь только с некоторыми",
+                "Я, если честно, даже не знаю"]
             },
             {
-                question: "Вопрос 4",
+                question: "4. Как ты обычно проводишь время после пар?",
                 image: "/img/question4.jpg",
-                answers: ["Ответ 11", "Ответ 42", "Ответ 3"]
+                answers: ["Иду на вечеринку с друзьями", 
+                "Делаю домашнее задание", 
+                "Занимаюсь своими личными делами", 
+                "Предпочитаю расслабляться перед компьютером"]
             },
             {
-                question: "Вопрос 5",
+                question: "5. Как к тебе относятся преподаватели?",
                 image: "/img/question5.jpg",
-                answers: ["Ответ 91", "Ответ 22", "Ответ 43"]
+                answers: ["Равнодушно", 
+                "Многие меня недолюбливают", 
+                "Отлично", 
+                "Нормально"]
             },
             {
-                question: "Вопрос 6",
+                question: "6. Даешь списывать конспекты, домашку?",
                 image: "/img/question6.jpg",
-                answers: ["Ответ 2341", "Ответ 23", "Ответ 3"]
+                answers: ["Да, без проблем", 
+                "Только некоторым лицам", 
+                "Обычно я у всех списываю", 
+                "У меня никто не просит"]
             },
             {
-                question: "Вопрос 7",
+                question: "7. В чем ты предпочитаешь ходить в учебное заведение?",
                 image: "/img/question7.jpg",
-                answers: ["Ответ 4231", "Ответ 233", "Ответ 33"]
+                answers: ["Классический стиль", 
+                "Городской стиль", 
+                "Минимальный стиль", 
+                "Комфортный стиль"]
             },
             {
-                question: "Вопрос 8",
+                question: "8. На парах ты чаще всего:",
                 image: "/img/question8.jpg",
-                answers: ["Ответ 1", "Ответ 372", "Ответ 3"]
+                answers: ["Внимательно слушаешь преподавателя", 
+                "Задаешь интересующие вопросы по теме", 
+                "Болтаешь с соседом по парте", 
+                "Занимаешься своими делами"]
             },
             {
-                question: "Вопрос 9",
+                question: "9. Участвуешь в общественной жизни (студенческое посвящение и тд) РЭУ?",
                 image: "/img/question9.jpg",
-                answers: ["Ответ 751", "Ответ 22", "Ответ 3"]
+                answers: ["Я о таком даже не слышал(а)", 
+                "Конечно", 
+                "Могу сходить и посмотреть", 
+                "Нет, у меня нет на это времени"]
             },
             {
-                question: "Вопрос 10",
+                question: "10. Главной целью твоего обучения является:",
                 image: "/img/question10.jpg",
-                answers: ["Ответ 21", "Ответ 2", "Ответ 773"]
+                answers: ["Получить диплом", 
+                "Весело провести время", 
+                "Как следует освоить профессию", 
+                "Получить красный диплом, что я лучше всех"]
             },
             // Добавьте остальные вопросы здесь
         ];
@@ -112,10 +147,11 @@
             document.getElementById('answer1Label').textContent = question.answers[0];
             document.getElementById('answer2Label').textContent = question.answers[1];
             document.getElementById('answer3Label').textContent = question.answers[2];
+            document.getElementById('answer4Label').textContent = question.answers[3];
         }
 
         loadQuestion(currentQuestionIndex);
     </script>
-    <script src="server.js"></script>
+    
 </body>
 </html>

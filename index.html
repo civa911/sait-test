@@ -3,32 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест - Какой я студент</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="styles.css">
+    <title>Интро</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Тест - Какой я студент?</h1>
-        <form id="userForm">
-            <label for="name">Фамилия и имя:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Почта:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <button type="submit">Начать тест</button>
-        </form>
-    </div>
+    <main>
 
-    <script>
-        document.getElementById('userForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            localStorage.setItem('name', document.getElementById('name').value);
-            localStorage.setItem('email', document.getElementById('email').value);
-            window.location.href = 'questions.html';
+        <div class="logo">
+            <img class="logo-img-reu" src="svg/Mask_group.svg" alt="РЭУ">
+
+            <img class="logo-img-sovet" src="svg/logo_soveta_beloe_1 1.svg" alt="Студенческий совет РЭУ">
+        </div>
+
+        <div class="container">
+        
+            <div class="typing-containers">
+                <span id="typing"></span>
+                <span class="cursor">|</span>
+            </div>
+            <button id="nextButton" type="submit">Дальше</button>
+            
+        </div>
+        <img class="footer-img" src="svg/выпускной.svg" alt="подвал">
+    </main>
+    
+
+    <!-- <footer class="footer">
+        <div class="img-footer">
+            <img class="footer-img" src="svg/vypusknoy_2.jpg" alt="подвал">
+        </div>
+    </footer> -->
+<script>
+        const words = ["Здравствуй студент =)", "Вспомни", "Прослезись...", "Гордись!"];
+    let wordIndex = 0;
+    let letterIndex = 0;
+    const typingElement = document.getElementById('typing');
+    const typingSpeed = 150;
+    const erasingSpeed = 100;
+    const delayBetweenWords = 2000;
+
+    function typeWord() {
+        if (letterIndex < words[wordIndex].length) {
+            typingElement.textContent += words[wordIndex].charAt(letterIndex);
+            letterIndex++;
+            setTimeout(typeWord, typingSpeed);
+        } else {
+            setTimeout(eraseWord, delayBetweenWords);
+        }
+    }
+
+    function eraseWord() {
+        if (letterIndex > 0) {
+            typingElement.textContent = words[wordIndex].substring(0, letterIndex - 1);
+            letterIndex--;
+            setTimeout(eraseWord, erasingSpeed);
+        } else {
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(typeWord, typingSpeed);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(typeWord, delayBetweenWords);
+    });
+
+    document.getElementById('nextButton').addEventListener('click', function() {
+            window.location.href = 'intro.html'; // Укажите нужный URL
         });
-    </script>
-    <script src="server.js"></script>
-    <script src="server.js"></script>
+    
+</script>
 </body>
 </html>
