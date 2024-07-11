@@ -23,7 +23,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 115px;
+  gap: 85px;
   height: 100vh;
   margin: 0;
   background-image: url("./svg/фон.jpg");
@@ -35,7 +35,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  width: 780px;
   margin-top: 1pc;
   border-radius: 8px;
   padding: 20px;
@@ -69,7 +69,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 15pc;
+  margin-top: 10pc;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
